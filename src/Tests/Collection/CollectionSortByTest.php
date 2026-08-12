@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Collection;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Collection;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Collection;
  * @package Funct\Tests\Collection
  * @author  Aurimas Niekis <aurimas@niekis.lt>
  */
-class CollectionSortByTest extends \PHPUnit_Framework_TestCase
+class CollectionSortByTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataCollectionSortBy()
+    public static function dataCollectionSortBy()
     {
         $out = [];
 
@@ -81,9 +83,7 @@ class CollectionSortByTest extends \PHPUnit_Framework_TestCase
         return $out;
     }
 
-    /**
-     * @dataProvider dataCollectionSortBy
-     */
+    #[DataProvider('dataCollectionSortBy')]
     public function testCollectionSortBy($given, $callback, $sortName, $expected)
     {
         $this->assertEquals($expected, Collection\sortBy($given, $callback, $sortName));

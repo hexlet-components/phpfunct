@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Strings;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Strings;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Strings;
  * @package Funct\Tests\Strings
  * @author  Aurimas Niekis <aurimas@niekis.lt>
  */
-class StringsPadTest extends \PHPUnit_Framework_TestCase
+class StringsPadTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataStringPad()
+    public static function dataStringPad()
     {
         $out = [];
 
@@ -26,9 +28,7 @@ class StringsPadTest extends \PHPUnit_Framework_TestCase
         return $out;
     }
 
-    /**
-     * @dataProvider dataStringPad
-     */
+    #[DataProvider('dataStringPad')]
     public function testStringPad($given, $expected)
     {
         $this->assertSame($expected, call_user_func_array('Funct\Strings\pad', $given));

@@ -10,7 +10,7 @@ use Funct\Collection;
  * @package Funct\Tests\Collection
  * @author  Aurimas Niekis <aurimas@niekis.lt>
  */
-class CollectionPairsTest extends \PHPUnit_Framework_TestCase
+class CollectionPairsTest extends \PHPUnit\Framework\TestCase
 {
     public function testCollectionPairs()
     {

@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Strings;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Strings;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Strings;
  * @package Funct\Tests\Strings
  * @author  Rod Elias <rod@wgo.com.br>
  */
-class StringsReverseTest extends \PHPUnit_Framework_TestCase
+class StringsReverseTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataStringReverse()
+    public static function dataStringReverse()
     {
         $out = [];
 
@@ -23,11 +25,11 @@ class StringsReverseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider dataStringReverse
      *
      * @param string $input
      * @param string $expected
      */
+    #[DataProvider('dataStringReverse')]
     public function testStringReverse($input, $expected)
     {
         $this->assertEquals($expected, Strings\reverse($input));

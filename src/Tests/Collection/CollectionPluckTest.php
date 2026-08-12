@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Collection;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Collection;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Collection;
  * @package Funct\Tests\Collection
  * @author  Aurimas Niekis <aurimas@niekis.lt>
  */
-class CollectionPluckTest extends \PHPUnit_Framework_TestCase
+class CollectionPluckTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataCollectionPluck()
+    public static function dataCollectionPluck()
     {
         $out = [];
 
@@ -42,9 +44,7 @@ class CollectionPluckTest extends \PHPUnit_Framework_TestCase
         return $out;
     }
 
-    /**
-     * @dataProvider dataCollectionPluck
-     */
+    #[DataProvider('dataCollectionPluck')]
     public function testCollectionPluck($given, $expected)
     {
         $this->assertEquals($expected, call_user_func_array('Funct\Collection\pluck', $given));

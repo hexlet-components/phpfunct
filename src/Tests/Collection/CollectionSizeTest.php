@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Collection;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Collection;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Collection;
  * @package Funct\Tests\Collection
  * @author  Rod Elias <rod@wgo.com.br>
  */
-class CollectionSizeTest extends \PHPUnit_Framework_TestCase
+class CollectionSizeTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataCollectionSize()
+    public static function dataCollectionSize()
     {
         $out = [];
         $out[] = [['a', 'b', 'c'], false, 3];
@@ -26,9 +28,9 @@ class CollectionSizeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider dataCollectionSize
      *
      */
+    #[DataProvider('dataCollectionSize')]
     public function testCollectionSize($given, $mode, $expected)
     {
         $this->assertEquals($expected, Collection\size($given, $mode));

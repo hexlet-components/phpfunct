@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Strings;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Strings;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Strings;
  * @package Funct\Tests\Strings
  * @author Lucantis Swann <lucantis.swann@gmail.com>
 */
-class StringsContainsTest extends \PHPUnit_Framework_TestCase
+class StringsContainsTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataStringContains()
+    public static function dataStringContains()
     {
         $out = [];
 
@@ -25,12 +27,12 @@ class StringsContainsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider dataStringContains
      *
      * @param string $input
      * @param string $substring
      * @param bool   $expected
      */
+    #[DataProvider('dataStringContains')]
     public function testStringContains($input, $substring, $expected)
     {
         $this->assertEquals($expected, Strings\contains($input, $substring));

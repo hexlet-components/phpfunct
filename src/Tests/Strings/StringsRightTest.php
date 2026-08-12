@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Strings;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Strings;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Strings;
  * @package Funct\Tests\Strings
  * @author  Aurimas Niekis <aurimas@niekis.lt>
  */
-class StringsRightTest extends \PHPUnit_Framework_TestCase
+class StringsRightTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataStringRight()
+    public static function dataStringRight()
     {
         $out = [];
 
@@ -43,9 +45,7 @@ class StringsRightTest extends \PHPUnit_Framework_TestCase
         return $out;
     }
 
-    /**
-     * @dataProvider dataStringRight
-     */
+    #[DataProvider('dataStringRight')]
     public function testStringRight($given, $expected)
     {
         $this->assertSame($expected, call_user_func_array('Funct\Strings\right', $given));

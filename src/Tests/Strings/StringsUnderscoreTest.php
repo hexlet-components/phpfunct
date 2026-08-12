@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Strings;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Strings;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Strings;
  * @package Funct\Tests\Strings
  * @author  Aurimas Niekis <aurimas@niekis.lt>
  */
-class StringsUnderscoreTest extends \PHPUnit_Framework_TestCase
+class StringsUnderscoreTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataStringUnderscore()
+    public static function dataStringUnderscore()
     {
         $out = [];
 
@@ -29,9 +31,7 @@ class StringsUnderscoreTest extends \PHPUnit_Framework_TestCase
         return $out;
     }
 
-    /**
-     * @dataProvider dataStringUnderscore
-     */
+    #[DataProvider('dataStringUnderscore')]
     public function testStringUnderscore($given, $expected)
     {
         $this->assertSame($expected, Strings\underscore($given));

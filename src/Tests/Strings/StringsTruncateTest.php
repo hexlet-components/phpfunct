@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Strings;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Strings;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Strings;
  * @package Funct\Tests\Strings
  * @author Lucantis Swann <lucantis.swann@gmail.com>
 */
-class StringsTruncateTest extends \PHPUnit_Framework_TestCase
+class StringsTruncateTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataStringTruncate()
+    public static function dataStringTruncate()
     {
         $out = [];
 
@@ -24,13 +26,13 @@ class StringsTruncateTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider dataStringTruncate
      *
      * @param string $input
      * @param string $length
      * @param string $chars
      * @param string $expected
      */
+    #[DataProvider('dataStringTruncate')]
     public function testStringTruncate($input, $length, $chars, $expected)
     {
         $this->assertEquals($expected, Strings\truncate($input, $length, $chars));

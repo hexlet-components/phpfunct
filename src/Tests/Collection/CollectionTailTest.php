@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Collection;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Collection;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Collection;
  * @package Funct\Tests\Collection
  * @author  Aurimas Niekis <aurimas@niekis.lt>
  */
-class CollectionTailTest extends \PHPUnit_Framework_TestCase
+class CollectionTailTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataCollectionTail()
+    public static function dataCollectionTail()
     {
         $out = [];
 
@@ -23,9 +25,7 @@ class CollectionTailTest extends \PHPUnit_Framework_TestCase
         return $out;
     }
 
-    /**
-     * @dataProvider dataCollectionTail
-     */
+    #[DataProvider('dataCollectionTail')]
     public function testCollectionTail($given, $expected, $from)
     {
         $this->assertEquals($expected, Collection\tail($given, $from));

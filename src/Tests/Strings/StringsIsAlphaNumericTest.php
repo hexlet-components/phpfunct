@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Strings;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Strings;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Strings;
  * @package Funct\Tests\Strings
  * @author Lucantis Swann <lucantis.swann@gmail.com>
 */
-class StringsIsAlphaNumericTest extends \PHPUnit_Framework_TestCase
+class StringsIsAlphaNumericTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataStringIsAlphaNumeric()
+    public static function dataStringIsAlphaNumeric()
     {
         $out = [];
 
@@ -28,11 +30,11 @@ class StringsIsAlphaNumericTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider dataStringIsAlphaNumeric
      *
      * @param string $input
      * @param bool $expected
      */
+    #[DataProvider('dataStringIsAlphaNumeric')]
     public function testStringIsAlphaNumeric($input, $expected)
     {
         $this->assertEquals($expected, Strings\isAlphaNumeric($input));

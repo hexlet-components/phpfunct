@@ -2,6 +2,8 @@
 
 namespace Funct\Tests;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct as Funct;
 
 /**
@@ -10,9 +12,9 @@ use Funct as Funct;
  * @package Funct\Tests
  * @author  Aurimas Niekis <aurimas@niekis.lt>
  */
-class FirstValueNotEmptyTest extends \PHPUnit_Framework_TestCase
+class FirstValueNotEmptyTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataFirstValueNotEmpty()
+    public static function dataFirstValueNotEmpty()
     {
         $out = [];
 
@@ -40,11 +42,11 @@ class FirstValueNotEmptyTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider dataFirstValueNotEmpty
      *
      * @param array  $arguments
      * @param string $expected
      */
+    #[DataProvider('dataFirstValueNotEmpty')]
     public function testFirstValueNotEmpty($arguments, $expected)
     {
         $output = call_user_func_array(

@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Strings;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Strings;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Strings;
  * @package Funct\Tests\Strings
  * @author Lucantis Swann <lucantis.swann@gmail.com>
 */
-class StringsCollapseWhiteSpaceTest extends \PHPUnit_Framework_TestCase
+class StringsCollapseWhitespaceTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataStringCollapseWhitespace()
+    public static function dataStringCollapseWhitespace()
     {
         $out = [];
 
@@ -24,11 +26,11 @@ class StringsCollapseWhiteSpaceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider dataStringCollapseWhiteSpace
      *
      * @param string $input
      * @param string $expected
      */
+    #[DataProvider('dataStringCollapseWhitespace')]
     public function testStringCollapseWhitespace($input, $expected)
     {
         $this->assertEquals($expected, Strings\collapseWhitespace($input));

@@ -10,7 +10,7 @@ use Funct as Funct;
  * @package Funct\Tests
  * @author Christophe Jean <cj@myjob.company>
 */
-class IfSetOrTest extends \PHPUnit_Framework_TestCase
+class IfSetOrTest extends \PHPUnit\Framework\TestCase
 {
     public function testIsNotSet()
     {

@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Collection;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Collection;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Collection;
  * @package Funct\Tests\Collection
  * @author  Aurimas Niekis <aurimas@niekis.lt>
  */
-class CollectionInitialTest extends \PHPUnit_Framework_TestCase
+class CollectionInitialTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataCollectionInitial()
+    public static function dataCollectionInitial()
     {
         $out = [];
 
@@ -23,9 +25,7 @@ class CollectionInitialTest extends \PHPUnit_Framework_TestCase
         return $out;
     }
 
-    /**
-     * @dataProvider  dataCollectionInitial
-     */
+    #[DataProvider('dataCollectionInitial')]
     public function testCollectionInitial($given, $expected, $n)
     {
         $this->assertEquals($expected, Collection\initial($given, $n));

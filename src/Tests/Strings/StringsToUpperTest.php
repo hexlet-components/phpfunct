@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Strings;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Strings;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Strings;
  * @package Funct\Tests\Strings
  * @author Rod Elias <rod@wgo.com.br>
 */
-class StringsToUpperTest extends \PHPUnit_Framework_TestCase
+class StringsToUpperTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataStringToUpper()
+    public static function dataStringToUpper()
     {
         $out = [];
 
@@ -28,12 +30,12 @@ class StringsToUpperTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider dataStringToUpper
      *
      * @param string $input
      * @param bool $mb
      * @param bool $expected
      */
+    #[DataProvider('dataStringToUpper')]
     public function testStringToUpper($input, $mb, $expected)
     {
         $this->assertEquals($expected, Strings\toUpper($input, $mb));

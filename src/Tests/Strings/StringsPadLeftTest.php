@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Strings;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Strings;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Strings;
  * @package Funct\Tests\Strings
  * @author  Lucantis Swann <lucantis.swann@gmail.com>
  */
-class StringsPadLeftTest extends \PHPUnit_Framework_TestCase
+class StringsPadLeftTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataStringPadLeft()
+    public static function dataStringPadLeft()
     {
         $out = [];
 
@@ -26,13 +28,13 @@ class StringsPadLeftTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider dataStringPadLeft
      *
      * @param string $input
      * @param string $length
      * @param string $char
      * @param string $expected
      */
+    #[DataProvider('dataStringPadLeft')]
     public function testStringPadLeft($input, $length, $char, $expected)
     {
         $this->assertEquals($expected, Strings\padLeft($input, $length, $char));

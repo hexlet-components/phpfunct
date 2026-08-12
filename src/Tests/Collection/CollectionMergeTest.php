@@ -10,7 +10,7 @@ use Funct\Collection;
  * @package Funct\Tests\Collection
  * @author Aurimas Niekis <aurimas@niekis.lt>
 */
-class CollectionMergeTest extends \PHPUnit_Framework_TestCase
+class CollectionMergeTest extends \PHPUnit\Framework\TestCase
 {
     public function testCollectionMerge()
     {

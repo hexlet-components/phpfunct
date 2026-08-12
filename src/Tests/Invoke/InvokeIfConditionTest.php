@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Invoke;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Invoke;
 
 /**
@@ -10,7 +12,7 @@ use Funct\Invoke;
  * @package Funct\Tests\Invoke
  * @author Aurimas Niekis <aurimas@niekis.lt>
  */
-class InvokeIfConditionTest extends \PHPUnit_Framework_TestCase
+class InvokeIfConditionTest extends \PHPUnit\Framework\TestCase
 {
     protected $callbackWasCalled;
     protected $callbackArguments;
@@ -18,7 +20,7 @@ class InvokeIfConditionTest extends \PHPUnit_Framework_TestCase
     protected static $staticCallbackWasCalled;
     protected static $staticCallbackArguments;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->callbackWasCalled = false;
         $this->callbackArguments = null;
@@ -26,7 +28,7 @@ class InvokeIfConditionTest extends \PHPUnit_Framework_TestCase
         self::$staticCallbackArguments = null;
     }
 
-    public function dataInvokeIf()
+    public static function dataInvokeIf()
     {
         $out = [];
 
@@ -39,11 +41,11 @@ class InvokeIfConditionTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider dataInvokeIf
      *
      * @param array $arguments
      * @param bool $condition
      */
+    #[DataProvider('dataInvokeIf')]
     public function testInvokeIf($arguments, $condition)
     {
         Invoke\ifCondition([$this, 'fakeCallback'], $arguments, $condition);
@@ -58,11 +60,11 @@ class InvokeIfConditionTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider dataInvokeIf
      *
      * @param array $arguments
      * @param bool $condition
      */
+    #[DataProvider('dataInvokeIf')]
     public function testInvokeIfWithStaticFunction($arguments, $condition)
     {
         Invoke\ifCondition([self::class, 'fakeStaticCallback'], $arguments, $condition);

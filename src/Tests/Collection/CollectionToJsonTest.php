@@ -10,7 +10,7 @@ use Funct\Collection;
  * @package Funct\Tests\Collection
  * @author Rod Elias <rod@wgo.com.br>
 */
-class CollectionToJsonTest extends \PHPUnit_Framework_TestCase
+class CollectionToJsonTest extends \PHPUnit\Framework\TestCase
 {
     public function testCollectionToJson()
     {

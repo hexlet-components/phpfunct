@@ -93,7 +93,7 @@ function notEmpty($value)
  * @return bool
  * @author Aurimas Niekis <aurimas@niekis.lt>
  */
-function notInArray($needle, $haystack, $strict = null)
+function notInArray($needle, $haystack, $strict = false)
 {
     return false === in_array($needle, $haystack, $strict);
 }

@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Strings;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Strings;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Strings;
  * @package Funct\Tests\Strings
  * @author Aurimas Niekis <aurimas@niekis.lt>
 */
-class StringsCamelizeTest extends \PHPUnit_Framework_TestCase
+class StringsCamelizeTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataStringCamelize()
+    public static function dataStringCamelize()
     {
         $out = [];
 
@@ -38,12 +40,12 @@ class StringsCamelizeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider dataStringCamelize
      *
      * @param string $input
      * @param string $expected
      * @param bool $uppercase
      */
+    #[DataProvider('dataStringCamelize')]
     public function testStringCamelize($input, $expected, $uppercase)
     {
         $output = Strings\camelize($input, $uppercase);

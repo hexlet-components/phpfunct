@@ -11,7 +11,7 @@ use Funct\Tests\Fixtures\SampleObject;
  * @package Funct\Tests\Objects
  * @author Aurimas Niekis <aurimas@niekis.lt>
 */
-class ObjectsToArrayTest extends \PHPUnit_Framework_TestCase
+class ObjectsToArrayTest extends \PHPUnit\Framework\TestCase
 {
     public function testObjectsToArray()
     {

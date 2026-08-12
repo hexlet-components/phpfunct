@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Collection;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Collection;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Collection;
  * @package Funct\Tests\Collection
  * @author  Aurimas Niekis <aurimas@niekis.lt>
  */
-class CollectionInvokeTest extends \PHPUnit_Framework_TestCase
+class CollectionInvokeTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataCollectionInvoke()
+    public static function dataCollectionInvoke()
     {
         $out = [];
 
@@ -38,9 +40,7 @@ class CollectionInvokeTest extends \PHPUnit_Framework_TestCase
         return $out;
     }
 
-    /**
-     * @dataProvider dataCollectionInvoke
-     */
+    #[DataProvider('dataCollectionInvoke')]
     public function testCollectionInvoke($given, $expected)
     {
         $this->assertEquals($expected, call_user_func_array('Funct\Collection\invoke', $given));

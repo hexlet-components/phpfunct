@@ -11,7 +11,7 @@ use Funct\Tests\Fixtures\SampleObject;;
  * @package Funct\Tests\Invoke
  * @author Aurimas Niekis <aurimas@niekis.lt>
 */
-class InvokeIfNotEmptyTest extends \PHPUnit_Framework_TestCase
+class InvokeIfNotEmptyTest extends \PHPUnit\Framework\TestCase
 {
     public function testInvokeIfNotEmpty()
     {

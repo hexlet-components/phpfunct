@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Strings;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Strings;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Strings;
  * @package Funct\Tests\Strings
  * @author  Aurimas Niekis <aurimas@niekis.lt>
  */
-class StringsToSentenceTest extends \PHPUnit_Framework_TestCase
+class StringsToSentenceTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataStringToSentence()
+    public static function dataStringToSentence()
     {
         $out = [];
 
@@ -35,9 +37,7 @@ class StringsToSentenceTest extends \PHPUnit_Framework_TestCase
         return $out;
     }
 
-    /**
-     * @dataProvider dataStringToSentence
-     */
+    #[DataProvider('dataStringToSentence')]
     public function testStringToSentence($given, $expected)
     {
         $this->assertSame($expected, call_user_func_array('Funct\Strings\toSentence', $given));

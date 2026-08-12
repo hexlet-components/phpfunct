@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Collection;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Collection;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Collection;
  * @package Funct\Tests\Collection
  * @author  Aurimas Niekis <aurimas@niekis.lt>
  */
-class CollectionRestTest extends \PHPUnit_Framework_TestCase
+class CollectionRestTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataCollectionRest()
+    public static function dataCollectionRest()
     {
         $out = [];
 
@@ -23,9 +25,7 @@ class CollectionRestTest extends \PHPUnit_Framework_TestCase
         return $out;
     }
 
-    /**
-     * @dataProvider dataCollectionRest
-     */
+    #[DataProvider('dataCollectionRest')]
     public function testCollectionRest($given, $expected, $from)
     {
         $this->assertEquals($expected, Collection\rest($given, $from));

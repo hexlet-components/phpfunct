@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Strings;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Strings;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Strings;
  * @package Funct\Tests\Strings
  * @author Aurimas Niekis <aurimas@niekis.lt>
 */
-class StringsLowerCaseFirstTest extends \PHPUnit_Framework_TestCase
+class StringsLowerCaseFirstTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataStringLowerCaseFirst()
+    public static function dataStringLowerCaseFirst()
     {
         $out = [];
 
@@ -24,11 +26,11 @@ class StringsLowerCaseFirstTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider dataStringLowerCaseFirst
      *
      * @param $input
      * @param $expected
      */
+    #[DataProvider('dataStringLowerCaseFirst')]
     public function testStringLowerCaseFirst($input, $expected)
     {
         $this->assertEquals($expected, Strings\lowerCaseFirst($input));

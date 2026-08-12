@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Strings;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Strings;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Strings;
  * @package Funct\Tests\Strings
  * @author  Aurimas Niekis <aurimas@niekis.lt>
  */
-class StringsStripPunctuationTest extends \PHPUnit_Framework_TestCase
+class StringsStripPunctuationTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataStringStripPunctuation()
+    public static function dataStringStripPunctuation()
     {
         $out = [];
 
@@ -24,9 +26,7 @@ class StringsStripPunctuationTest extends \PHPUnit_Framework_TestCase
         return $out;
     }
 
-    /**
-     * @dataProvider dataStringStripPunctuation
-     */
+    #[DataProvider('dataStringStripPunctuation')]
     public function testStringStripPunctuation($given, $expected)
     {
         $this->assertSame($expected, Strings\stripPunctuation($given));

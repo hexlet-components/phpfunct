@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Strings;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Strings;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Strings;
  * @package Funct\Tests\Strings
  * @author Lucantis Swann <lucantis.swann@gmail.com>
 */
-class StringsStartsWithTest extends \PHPUnit_Framework_TestCase
+class StringsStartsWithTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataStringStartsWith()
+    public static function dataStringStartsWith()
     {
         $out = [];
 
@@ -27,12 +29,12 @@ class StringsStartsWithTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider dataStringStartsWith
      *
      * @param string $input
      * @param string $substring
      * @param bool   $expected
      */
+    #[DataProvider('dataStringStartsWith')]
     public function testStringStartsWith($input, $substring, $expected)
     {
         $this->assertEquals($expected, Strings\startsWith($input, $substring));

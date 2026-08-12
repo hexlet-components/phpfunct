@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Strings;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Strings;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Strings;
  * @package Funct\Tests\Strings
  * @author Aurimas Niekis <aurimas@niekis.lt>
 */
-class StringsUpperCaseFirstTest extends \PHPUnit_Framework_TestCase
+class StringsUpperCaseFirstTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataStringUpperCaseFirst()
+    public static function dataStringUpperCaseFirst()
     {
         $out = [];
 
@@ -24,11 +26,11 @@ class StringsUpperCaseFirstTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider dataStringUpperCaseFirst
      *
      * @param $input
      * @param $expected
      */
+    #[DataProvider('dataStringUpperCaseFirst')]
     public function testStringUpperCaseFirst($input, $expected)
     {
         $this->assertEquals($expected, Strings\upperCaseFirst($input));

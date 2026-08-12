@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Strings;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Strings;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Strings;
  * @package Funct\Tests\Strings
  * @author Lucantis Swann <lucantis.swann@gmail.com>
 */
-class StringsRepeatTest extends \PHPUnit_Framework_TestCase
+class StringsRepeatTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataStringRepeat()
+    public static function dataStringRepeat()
     {
         $out = [];
 
@@ -24,12 +26,12 @@ class StringsRepeatTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider dataStringRepeat
      *
      * @param string $input
      * @param int    $n
      * @param string $expected
      */
+    #[DataProvider('dataStringRepeat')]
     public function testStringRepeat($input, $n, $expected)
     {
         $this->assertEquals($expected, Strings\repeat($input, $n));

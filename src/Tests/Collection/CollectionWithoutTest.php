@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Collection;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Collection;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Collection;
  * @package Funct\Tests\Collection
  * @author  Aurimas Niekis <aurimas@niekis.lt>
  */
-class CollectionWithoutTest extends \PHPUnit_Framework_TestCase
+class CollectionWithoutTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataCollectionWithout()
+    public static function dataCollectionWithout()
     {
         $out = [];
 
@@ -39,9 +41,7 @@ class CollectionWithoutTest extends \PHPUnit_Framework_TestCase
         return $out;
     }
 
-    /**
-     * @dataProvider dataCollectionWithout
-     */
+    #[DataProvider('dataCollectionWithout')]
     public function testCollectionWithout($given, $expected)
     {
         $this->assertEquals($expected, call_user_func_array('Funct\Collection\without', $given));

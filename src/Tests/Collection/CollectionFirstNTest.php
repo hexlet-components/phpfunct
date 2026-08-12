@@ -10,7 +10,7 @@ use Funct\Collection;
  * @package Funct\Tests\Invoke
  * @author Aurimas Niekis <aurimas@niekis.lt>
  */
-class CollectionFirstNTest extends \PHPUnit_Framework_TestCase
+class CollectionFirstNTest extends \PHPUnit\Framework\TestCase
 {
 
     public function testFirst()

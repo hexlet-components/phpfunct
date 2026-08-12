@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Strings;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Strings;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Strings;
  * @package Funct\Tests\Strings
  * @author  Aurimas Niekis <aurimas@niekis.lt>
  */
-class StringsDasherizeTest extends \PHPUnit_Framework_TestCase
+class StringsDasherizeTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataStringDasherize()
+    public static function dataStringDasherize()
     {
         $out = [];
 
@@ -29,9 +31,7 @@ class StringsDasherizeTest extends \PHPUnit_Framework_TestCase
         return $out;
     }
 
-    /**
-     * @dataProvider dataStringDasherize
-     */
+    #[DataProvider('dataStringDasherize')]
     public function testStringDasherize($given, $expected)
     {
         $this->assertSame($expected, Strings\dasherize($given));

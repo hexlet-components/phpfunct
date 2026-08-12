@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Strings;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Strings;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Strings;
  * @package Funct\Tests\Strings
  * @author  Rod Elias <rod@wgo.com.br>
  */
-class StringsLengthTest extends \PHPUnit_Framework_TestCase
+class StringsLengthTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataStringLength()
+    public static function dataStringLength()
     {
         $out = [];
 
@@ -23,11 +25,11 @@ class StringsLengthTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider dataStringLength
      *
      * @param string $input
      * @param string $expected
      */
+    #[DataProvider('dataStringLength')]
     public function testStringLength($input, $mb, $expected)
     {
         $this->assertEquals($expected, Strings\Length($input, $mb));

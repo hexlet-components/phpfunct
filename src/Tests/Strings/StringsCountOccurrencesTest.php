@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Strings;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Strings;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Strings;
  * @package Funct\Tests\Strings
  * @author Lucantis Swann <lucantis.swann@gmail.com>
 */
-class StringsCountTest extends \PHPUnit_Framework_TestCase
+class StringsCountOccurrencesTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataStringCountOccurrences()
+    public static function dataStringCountOccurrences()
     {
         $out = [];
 
@@ -25,12 +27,12 @@ class StringsCountTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider dataStringCountOccurrences
      *
      * @param string $input
      * @param string $substring
      * @param int    $expected
      */
+    #[DataProvider('dataStringCountOccurrences')]
     public function testStringCountOccurrences($input, $substring, $expected)
     {
         $this->assertEquals($expected, Strings\countOccurrences($input, $substring));

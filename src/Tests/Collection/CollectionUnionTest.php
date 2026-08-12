@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Collection;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Collection;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Collection;
  * @package Funct\Tests\Collection
  * @author  Aurimas Niekis <aurimas@niekis.lt>
  */
-class CollectionUnionTest extends \PHPUnit_Framework_TestCase
+class CollectionUnionTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataCollectionUnion()
+    public static function dataCollectionUnion()
     {
         $out = [];
 
@@ -38,9 +40,7 @@ class CollectionUnionTest extends \PHPUnit_Framework_TestCase
         return $out;
     }
 
-    /**
-     * @dataProvider dataCollectionUnion
-     */
+    #[DataProvider('dataCollectionUnion')]
     public function testCollectionUnion($given, $expected)
     {
         $this->assertEquals($expected, call_user_func_array('Funct\Collection\union', $given));

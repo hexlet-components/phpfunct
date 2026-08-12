@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Strings;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Strings;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Strings;
  * @package Funct\Tests\Strings
  * @author  Aurimas Niekis <aurimas@niekis.lt>
  */
-class StringsSlugifyTest extends \PHPUnit_Framework_TestCase
+class StringsSlugifyTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataStringSlugify()
+    public static function dataStringSlugify()
     {
         $out = [];
 
@@ -29,9 +31,7 @@ class StringsSlugifyTest extends \PHPUnit_Framework_TestCase
         return $out;
     }
 
-    /**
-     * @dataProvider dataStringSlugify
-     */
+    #[DataProvider('dataStringSlugify')]
     public function testStringSlugify($given, $expected)
     {
         $this->assertSame($expected, Strings\slugify($given));

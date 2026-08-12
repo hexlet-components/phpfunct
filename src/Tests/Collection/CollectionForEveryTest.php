@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Collection;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Collection;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Collection;
  * @package Funct\Tests\Collection
  * @author Aurimas Niekis <aurimas@niekis.lt>
 */
-class CollectionForEveryTest extends \PHPUnit_Framework_TestCase
+class CollectionForEveryTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataCollectionForEvery()
+    public static function dataCollectionForEvery()
     {
         $out = [];
 
@@ -38,9 +40,7 @@ class CollectionForEveryTest extends \PHPUnit_Framework_TestCase
         return $out;
     }
 
-    /**
-     * @dataProvider dataCollectionForEvery
-     */
+    #[DataProvider('dataCollectionForEvery')]
     public function testCollectionForEvery($given, $expected)
     {
         $this->assertEquals($expected, call_user_func_array('Funct\Collection\forEvery', $given));

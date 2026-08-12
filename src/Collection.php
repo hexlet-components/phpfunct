@@ -505,7 +505,7 @@ function reverse($collection, $preserveNumericKeys = false)
  */
 function size($collection, $countRecursive = false)
 {
-    return \count($collection, $countRecursive);
+    return \count($collection ?? [], $countRecursive);
 }
 
 /**

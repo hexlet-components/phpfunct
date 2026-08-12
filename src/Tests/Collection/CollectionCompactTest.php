@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Collection;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Collection;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Collection;
  * @package Funct\Tests\Collection
  * @author  Aurimas Niekis <aurimas@niekis.lt>
  */
-class CollectionCompactTest extends \PHPUnit_Framework_TestCase
+class CollectionCompactTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataCollectionCompact()
+    public static function dataCollectionCompact()
     {
         $out = [];
 
@@ -24,9 +26,7 @@ class CollectionCompactTest extends \PHPUnit_Framework_TestCase
         return $out;
     }
 
-    /**
-     * @dataProvider dataCollectionCompact
-     */
+    #[DataProvider('dataCollectionCompact')]
     public function testCollectionCompact($given, $expected)
     {
         $this->assertEquals($expected, Collection\compact($given));

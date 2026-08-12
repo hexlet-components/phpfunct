@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Strings;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Strings;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Strings;
  * @package Funct\Tests\Strings
  * @author Lucantis Swann <lucantis.swann@gmail.com>
 */
-class StringsChompRightTest extends \PHPUnit_Framework_TestCase
+class StringsChompRightTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataStringChompRight()
+    public static function dataStringChompRight()
     {
         $out = [];
 
@@ -25,12 +27,12 @@ class StringsChompRightTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider dataStringChompRight
      *
      * @param string $input
      * @param string $suffix
      * @param string $expected
      */
+    #[DataProvider('dataStringChompRight')]
     public function testStringChompRight($input, $suffix, $expected)
     {
         $this->assertEquals($expected, Strings\chompRight($input, $suffix));

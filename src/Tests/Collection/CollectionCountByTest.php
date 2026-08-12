@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Collection;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Collection;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Collection;
  * @package Funct\Tests\Collection
  * @author  Aurimas Niekis <aurimas@niekis.lt>
  */
-class CollectionCountByTest extends \PHPUnit_Framework_TestCase
+class CollectionCountByTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataCollectionCountBy()
+    public static function dataCollectionCountBy()
     {
         $out = [];
 
@@ -59,9 +61,7 @@ class CollectionCountByTest extends \PHPUnit_Framework_TestCase
         return $out;
     }
 
-    /**
-     * @dataProvider dataCollectionCountBy
-     */
+    #[DataProvider('dataCollectionCountBy')]
     public function testCollectionCountBy($given, $expected)
     {
         $this->assertEquals($expected, call_user_func_array('Funct\Collection\countBy', $given));

@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Strings;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Strings;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Strings;
  * @package Funct\Tests\Strings
  * @author Lucantis Swann <lucantis.swann@gmail.com>
 */
-class StringsIsNumericTest extends \PHPUnit_Framework_TestCase
+class StringsIsNumericTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataStringIsNumeric()
+    public static function dataStringIsNumeric()
     {
         $out = [];
 
@@ -28,11 +30,11 @@ class StringsIsNumericTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider dataStringIsNumeric
      *
      * @param string $input
      * @param bool $expected
      */
+    #[DataProvider('dataStringIsNumeric')]
     public function testStringIsNumeric($input, $expected)
     {
         $this->assertEquals($expected, Strings\isNumeric($input));

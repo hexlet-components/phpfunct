@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Collection;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Collection;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Collection;
  * @package Funct\Tests\Collection
  * @author  Aurimas Niekis <aurimas@niekis.lt>
  */
-class CollectionWhereTest extends \PHPUnit_Framework_TestCase
+class CollectionWhereTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataCollectionWhere()
+    public static function dataCollectionWhere()
     {
         $out = [];
 
@@ -37,9 +39,7 @@ class CollectionWhereTest extends \PHPUnit_Framework_TestCase
         return $out;
     }
 
-    /**
-     * @dataProvider dataCollectionWhere
-     */
+    #[DataProvider('dataCollectionWhere')]
     public function testCollectionWhere($given, $expected)
     {
         $this->assertEquals($expected, call_user_func_array('Funct\Collection\where', $given));

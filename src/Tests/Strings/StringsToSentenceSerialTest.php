@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Strings;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Strings;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Strings;
  * @package Funct\Tests\Strings
  * @author  Aurimas Niekis <aurimas@niekis.lt>
  */
-class StringsToSentenceSerialTest extends \PHPUnit_Framework_TestCase
+class StringsToSentenceSerialTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataStringToSentenceSerial()
+    public static function dataStringToSentenceSerial()
     {
         $out = [];
 
@@ -42,9 +44,7 @@ class StringsToSentenceSerialTest extends \PHPUnit_Framework_TestCase
         return $out;
     }
 
-    /**
-     * @dataProvider dataStringToSentenceSerial
-     */
+    #[DataProvider('dataStringToSentenceSerial')]
     public function testStringToSentenceSerial($given, $expected)
     {
         $this->assertSame($expected, call_user_func_array('Funct\Strings\toSentenceSerial', $given));

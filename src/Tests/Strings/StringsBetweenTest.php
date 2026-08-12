@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Strings;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Strings;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Strings;
  * @package Funct\Tests\Strings
  * @author Lucantis Swann <lucantis.swann@gmail.com>
 */
-class StringsBetweenTest extends \PHPUnit_Framework_TestCase
+class StringsBetweenTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataStringBetween()
+    public static function dataStringBetween()
     {
         $out = [];
 
@@ -25,13 +27,13 @@ class StringsBetweenTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider dataStringBetween
      *
      * @param string $input
      * @param string $left
      * @param string $right
      * @param string $expected
      */
+    #[DataProvider('dataStringBetween')]
     public function testStringBetween($input, $left, $right, $expected)
     {
         $this->assertEquals($expected, Strings\between($input, $left, $right));

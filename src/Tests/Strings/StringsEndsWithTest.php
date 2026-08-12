@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Strings;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Strings;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Strings;
  * @package Funct\Tests\Strings
  * @author Lucantis Swann <lucantis.swann@gmail.com>
 */
-class StringsEndsWithTest extends \PHPUnit_Framework_TestCase
+class StringsEndsWithTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataStringEndsWith()
+    public static function dataStringEndsWith()
     {
         $out = [];
 
@@ -25,12 +27,12 @@ class StringsEndsWithTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider dataStringEndsWith
      *
      * @param string $input
      * @param string $substring
      * @param string $expected
      */
+    #[DataProvider('dataStringEndsWith')]
     public function testStringEndsWith($input, $substring, $expected)
     {
         $this->assertEquals($expected, Strings\endsWith($input, $substring));

@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Strings;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Strings;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Strings;
  * @package Funct\Tests\Strings
  * @author Lucantis Swann <lucantis.swann@gmail.com>
 */
-class StringsLatinizeTest extends \PHPUnit_Framework_TestCase
+class StringsLatinizeTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataStringLatinize()
+    public static function dataStringLatinize()
     {
         $out = [];
 
@@ -27,11 +29,11 @@ class StringsLatinizeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider dataStringLatinize
      *
      * @param string $input
      * @param string $expected
      */
+    #[DataProvider('dataStringLatinize')]
     public function testStringLatinize($input, $expected)
     {
         $this->assertEquals($expected, Strings\latinize($input));

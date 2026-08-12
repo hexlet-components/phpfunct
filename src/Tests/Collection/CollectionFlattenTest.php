@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Collection;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Collection;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Collection;
  * @package Funct\Tests\Collection
  * @author  Aurimas Niekis <aurimas@niekis.lt>
  */
-class CollectionFlattenTest extends \PHPUnit_Framework_TestCase
+class CollectionFlattenTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataCollectionFlatten()
+    public static function dataCollectionFlatten()
     {
         $out = [];
 
@@ -52,9 +54,7 @@ class CollectionFlattenTest extends \PHPUnit_Framework_TestCase
         return $out;
     }
 
-    /**
-     * @dataProvider dataCollectionFlatten
-     */
+    #[DataProvider('dataCollectionFlatten')]
     public function testCollectionFlatten($given, $expected, $depth = 1)
     {
         $this->assertEquals($expected, Collection\flatten($given, $depth));

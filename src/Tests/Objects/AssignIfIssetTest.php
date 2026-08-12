@@ -10,7 +10,7 @@ use Funct\Object as Obj;
  * @package Funct\Tests\Objects
  * @author  Aurimas Niekis <aurimas@niekis.lt>
  */
-class AssignIfIssetTest extends \PHPUnit_Framework_TestCase
+class AssignIfIssetTest extends \PHPUnit\Framework\TestCase
 {
 
     public function testMethod()
@@ -20,12 +20,12 @@ class AssignIfIssetTest extends \PHPUnit_Framework_TestCase
 
         Obj\assignIfIsset($object, 'foo', $array, 'bar');
 
-        $this->assertObjectNotHasAttribute('foo', $object);
+        $this->assertObjectNotHasProperty('foo', $object);
 
         $array = ['bar' => 'foobar'];
 
         Obj\assignIfIsset($object, 'foo', $array, 'bar');
-        $this->assertObjectHasAttribute('foo', $object);
+        $this->assertObjectHasProperty('foo', $object);
         $this->assertSame('foobar', $object->foo);
     }
 }

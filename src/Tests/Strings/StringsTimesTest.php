@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Strings;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Strings;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Strings;
  * @package Funct\Tests\Strings
  * @author Lucantis Swann <lucantis.swann@gmail.com>
 */
-class StringsTimesTest extends \PHPUnit_Framework_TestCase
+class StringsTimesTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataStringTimes()
+    public static function dataStringTimes()
     {
         $out = [];
 
@@ -24,12 +26,12 @@ class StringsTimesTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider dataStringTimes
      *
      * @param string $input
      * @param string $n
      * @param string $expected
      */
+    #[DataProvider('dataStringTimes')]
     public function testStringTimes($input, $n, $expected)
     {
         $this->assertEquals($expected, Strings\times($input, $n));

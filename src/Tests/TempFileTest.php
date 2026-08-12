@@ -10,7 +10,7 @@ use Funct as Funct;
  * @package Funct\Tests
  * @author Aurimas Niekis <aurimas@niekis.lt>
 */
-class TempFileTest extends \PHPUnit_Framework_TestCase
+class TempFileTest extends \PHPUnit\Framework\TestCase
 {
     public function testTempFile()
     {

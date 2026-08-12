@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Strings;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Strings;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Strings;
  * @package Funct\Tests\Strings
  * @author  Aurimas Niekis <aurimas@niekis.lt>
  */
-class StringsStripTest extends \PHPUnit_Framework_TestCase
+class StringsStripTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataStringStrip()
+    public static function dataStringStrip()
     {
         $out = [];
 
@@ -39,9 +41,7 @@ class StringsStripTest extends \PHPUnit_Framework_TestCase
         return $out;
     }
 
-    /**
-     * @dataProvider dataStringStrip
-     */
+    #[DataProvider('dataStringStrip')]
     public function testStringStrip($given, $expected)
     {
         $this->assertSame($expected, call_user_func_array('Funct\Strings\strip', $given));

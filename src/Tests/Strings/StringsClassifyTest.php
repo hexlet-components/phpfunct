@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Strings;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Strings;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Strings;
  * @package Funct\Tests\Strings
  * @author  Aurimas Niekis <aurimas@niekis.lt>
  */
-class StringsClassifyTest extends \PHPUnit_Framework_TestCase
+class StringsClassifyTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataStringClassify()
+    public static function dataStringClassify()
     {
         $out = [];
 
@@ -29,11 +31,11 @@ class StringsClassifyTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider dataStringClassify
      *
      * @param string $input
      * @param string $expected
      */
+    #[DataProvider('dataStringClassify')]
     public function testStringClassify($input, $expected)
     {
         $this->assertEquals($expected, Strings\classify($input));

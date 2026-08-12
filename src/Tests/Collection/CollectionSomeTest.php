@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Collection;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Collection;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Collection;
  * @package Funct\Tests\Collection
  * @author  Aurimas Niekis <aurimas@niekis.lt>
  */
-class CollectionSomeTest extends \PHPUnit_Framework_TestCase
+class CollectionSomeTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataCollectionSome()
+    public static function dataCollectionSome()
     {
         $out = [];
 
@@ -53,9 +55,7 @@ class CollectionSomeTest extends \PHPUnit_Framework_TestCase
         return $out;
     }
 
-    /**
-     * @dataProvider dataCollectionSome
-     */
+    #[DataProvider('dataCollectionSome')]
     public function testCollectionSome($given, $callback, $expected)
     {
         $this->assertSame($expected, Collection\some($given, $callback));

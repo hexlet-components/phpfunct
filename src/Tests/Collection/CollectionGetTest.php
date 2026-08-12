@@ -10,7 +10,7 @@ use Funct\Collection;
  * @package Funct\Tests\Collection
  * @author Aurimas Niekis <aurimas@niekis.lt>
 */
-class CollectionGetTest extends \PHPUnit_Framework_TestCase
+class CollectionGetTest extends \PHPUnit\Framework\TestCase
 {
     public function testCollectionGetExists()
     {

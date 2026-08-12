@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Collection;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Collection;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Collection;
  * @package Funct\Tests\Collection
  * @author  Aurimas Niekis <aurimas@niekis.lt>
  */
-class CollectionMaxValueTest extends \PHPUnit_Framework_TestCase
+class CollectionMaxValueTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataCollectionMaxValue()
+    public static function dataCollectionMaxValue()
     {
         $out = [];
 
@@ -45,9 +47,7 @@ class CollectionMaxValueTest extends \PHPUnit_Framework_TestCase
         return $out;
     }
 
-    /**
-     * @dataProvider dataCollectionMaxValue
-     */
+    #[DataProvider('dataCollectionMaxValue')]
     public function testCollectionMaxValue($given, $expected)
     {
         $this->assertEquals($expected, call_user_func_array('Funct\Collection\maxValue', $given));

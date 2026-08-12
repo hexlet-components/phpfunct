@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Strings;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Strings;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Strings;
  * @package Funct\Tests\Strings
  * @author Ernestas Kvedaras <kvedaras.ernestas@gmail.com>
 */
-class StringsIsUpperTest extends \PHPUnit_Framework_TestCase
+class StringsIsUpperTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataStringIsUpper()
+    public static function dataStringIsUpper()
     {
         $out = [];
 
@@ -41,12 +43,12 @@ class StringsIsUpperTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider dataStringIsUpper
      *
      * @param string $input
      * @param bool $mb
      * @param bool $expected
      */
+    #[DataProvider('dataStringIsUpper')]
     public function testStringIsUpper($input, $mb, $expected)
     {
         $this->assertEquals($expected, Strings\isUpper($input, $mb));

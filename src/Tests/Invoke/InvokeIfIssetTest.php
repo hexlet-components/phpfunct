@@ -11,7 +11,7 @@ use Funct\Tests\Fixtures\SampleObject;;
  * @package Funct\Tests\Invoke
  * @author Aurimas Niekis <${AUTHOR}>
  */
-class InvokeIfIssetTest extends \PHPUnit_Framework_TestCase
+class InvokeIfIssetTest extends \PHPUnit\Framework\TestCase
 {
     public function testInvokeIf()
     {

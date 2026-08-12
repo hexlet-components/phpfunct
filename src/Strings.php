@@ -784,7 +784,7 @@ function toUpper($input, $mb = false)
 function truncate($input, $length, $chars = '…')
 {
     if (strlen($input) > $length) {
-        $splits = preg_split('/([\s\n\r]+)/u', $input, null, PREG_SPLIT_DELIM_CAPTURE);
+        $splits = preg_split('/([\s\n\r]+)/u', $input, -1, PREG_SPLIT_DELIM_CAPTURE);
 
         $splitsLength = 0;
         $splitsCount  = count($splits);

@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Collection;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Collection;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Collection;
  * @package Funct\Tests\Collection
  * @author  Aurimas Niekis <aurimas@niekis.lt>
  */
-class CollectionPartitionTest extends \PHPUnit_Framework_TestCase
+class CollectionPartitionTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataCollectionPartition()
+    public static function dataCollectionPartition()
     {
         $out = [];
 
@@ -29,9 +31,7 @@ class CollectionPartitionTest extends \PHPUnit_Framework_TestCase
         return $out;
     }
 
-    /**
-     * @dataProvider dataCollectionPartition
-     */
+    #[DataProvider('dataCollectionPartition')]
     public function testCollectionPartition($given, $expected)
     {
         $this->assertEquals($expected, call_user_func_array('Funct\Collection\partition', $given));

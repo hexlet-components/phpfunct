@@ -10,7 +10,7 @@ use Funct\Collection;
  * @package Funct\Tests\Collection
  * @author  Aurimas Niekis <aurimas@niekis.lt>
  */
-class CollectionLastIndexOfTest extends \PHPUnit_Framework_TestCase
+class CollectionLastIndexOfTest extends \PHPUnit\Framework\TestCase
 {
     public function testCollectionLastIndexOf()
     {

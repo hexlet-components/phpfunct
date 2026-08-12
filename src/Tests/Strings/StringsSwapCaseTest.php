@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Strings;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Strings;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Strings;
  * @package Funct\Tests\Strings
  * @author Rod Elias <rod@wgo.com.br>
 */
-class StringsSwapCase extends \PHPUnit_Framework_TestCase
+class StringsSwapCaseTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataStringSwapCase()
+    public static function dataStringSwapCase()
     {
         $out = [];
 
@@ -29,12 +31,12 @@ class StringsSwapCase extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider dataStringSwapCase
      *
      * @param string $input
      * @param bool $mb
      * @param bool $expected
      */
+    #[DataProvider('dataStringSwapCase')]
     public function testStringSwapCase($input, $mb, $expected)
     {
         $this->assertEquals($expected, Strings\swapCase($input, $mb));

@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Collection;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Collection;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Collection;
  * @package Funct\Tests\Collection
  * @author  Aurimas Niekis <aurimas@niekis.lt>
  */
-class CollectionRejectTest extends \PHPUnit_Framework_TestCase
+class CollectionRejectTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataCollectionReject()
+    public static function dataCollectionReject()
     {
         $out = [];
 
@@ -27,9 +29,7 @@ class CollectionRejectTest extends \PHPUnit_Framework_TestCase
         return $out;
     }
 
-    /**
-     * @dataProvider dataCollectionReject
-     */
+    #[DataProvider('dataCollectionReject')]
     public function testCollectionReject($given, $callback, $expected)
     {
         $this->assertEquals($expected, Collection\reject($given, $callback));

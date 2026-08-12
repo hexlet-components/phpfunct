@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Collection;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Collection;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Collection;
  * @package Funct\Tests\Collection
  * @author  Aurimas Niekis <aurimas@niekis.lt>
  */
-class CollectionGroupByTest extends \PHPUnit_Framework_TestCase
+class CollectionGroupByTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataCollectionGroupBy()
+    public static function dataCollectionGroupBy()
     {
         $out = [];
 
@@ -77,9 +79,7 @@ class CollectionGroupByTest extends \PHPUnit_Framework_TestCase
         return $out;
     }
 
-    /**
-     * @dataProvider dataCollectionGroupBy
-     */
+    #[DataProvider('dataCollectionGroupBy')]
     public function testCollectionGroupBy($given, $expected)
     {
         $this->assertEquals($expected, call_user_func_array('Funct\Collection\groupBy', $given));

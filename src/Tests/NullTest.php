@@ -10,7 +10,7 @@ use Funct as Funct;
  * @package Funct\Tests
  * @author Aurimas Niekis <aurimas@niekis.lt>
 */
-class NullTest extends \PHPUnit_Framework_TestCase
+class NullTest extends \PHPUnit\Framework\TestCase
 {
     public function testNull()
     {

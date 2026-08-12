@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Strings;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Strings;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Strings;
  * @package Funct\Tests\Strings
  * @author  Aurimas Niekis <aurimas@niekis.lt>
  */
-class StringsLinesTest extends \PHPUnit_Framework_TestCase
+class StringsLinesTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataStringLines()
+    public static function dataStringLines()
     {
         $out = [];
 
@@ -28,9 +30,7 @@ class StringsLinesTest extends \PHPUnit_Framework_TestCase
         return $out;
     }
 
-    /**
-     * @dataProvider dataStringLines
-     */
+    #[DataProvider('dataStringLines')]
     public function testStringLines($given, $expected)
     {
         $this->assertSame($expected, Strings\lines($given));

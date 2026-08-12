@@ -10,7 +10,7 @@ use Funct;
  * @package Funct\Tests
  * @author Aurimas Niekis <aurimas@niekis.lt>
 */
-class ArrayKeyNotExistsTest extends \PHPUnit_Framework_TestCase
+class ArrayKeyNotExistsTest extends \PHPUnit\Framework\TestCase
 {
     public function testArrayKeyNotExists()
     {

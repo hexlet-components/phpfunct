@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Strings;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Strings;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Strings;
  * @package Funct\Tests\Strings
  * @author Ernestas Kvedaras <kvedaras.ernestas@gmail.com>
 */
-class StringsIsLowerTest extends \PHPUnit_Framework_TestCase
+class StringsIsLowerTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataStringIsLower()
+    public static function dataStringIsLower()
     {
         $out = [];
 
@@ -41,12 +43,12 @@ class StringsIsLowerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider dataStringIsLower
      *
      * @param string $input
      * @param bool $mb
      * @param bool $expected
      */
+    #[DataProvider('dataStringIsLower')]
     public function testStringIsLower($input, $mb, $expected)
     {
         $this->assertEquals($expected, Strings\isLower($input, $mb));

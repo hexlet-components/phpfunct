@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Strings;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Strings;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Strings;
  * @package Funct\Tests\Strings
  * @author  Aurimas Niekis <aurimas@niekis.lt>
  */
-class StringsTitleizeTest extends \PHPUnit_Framework_TestCase
+class StringsTitleizeTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataStringTitleize()
+    public static function dataStringTitleize()
     {
         $out = [];
 
@@ -40,9 +42,7 @@ class StringsTitleizeTest extends \PHPUnit_Framework_TestCase
         return $out;
     }
 
-    /**
-     * @dataProvider dataStringTitleize
-     */
+    #[DataProvider('dataStringTitleize')]
     public function testStringTitleize($given, $expected, array $ignored = [])
     {
         $this->assertSame($expected, Strings\titleize($given, $ignored));

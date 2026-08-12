@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Collection;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Collection;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Collection;
  * @package Funct\Tests\Collection
  * @author  Aurimas Niekis <aurimas@niekis.lt>
  */
-class CollectionIntersectionTest extends \PHPUnit_Framework_TestCase
+class CollectionIntersectionTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataCollectionIntersection()
+    public static function dataCollectionIntersection()
     {
         $out = [];
 
@@ -38,9 +40,7 @@ class CollectionIntersectionTest extends \PHPUnit_Framework_TestCase
         return $out;
     }
 
-    /**
-     * @dataProvider dataCollectionIntersection
-     */
+    #[DataProvider('dataCollectionIntersection')]
     public function testCollectionIntersection($given, $expected)
     {
         $this->assertEquals($expected, call_user_func_array('Funct\Collection\intersection', $given));

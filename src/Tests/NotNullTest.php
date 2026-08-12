@@ -2,6 +2,8 @@
 
 namespace Funct\Tests;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct as Funct;
 
 /**
@@ -10,9 +12,9 @@ use Funct as Funct;
  * @package Funct\Tests
  * @author Aurimas Niekis <aurimas@niekis.lt>
 */
-class NotNullTest extends \PHPUnit_Framework_TestCase
+class NotNullTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataNotNull()
+    public static function dataNotNull()
     {
         $out = [];
 
@@ -24,11 +26,11 @@ class NotNullTest extends \PHPUnit_Framework_TestCase
 
 
     /**
-     * @dataProvider dataNotNull
      *
      * @param mixed $input
      * @param bool  $expected
      */
+    #[DataProvider('dataNotNull')]
     public function testNotNull($input, $expected)
     {
         $this->assertEquals($expected, Funct\notNull($input));

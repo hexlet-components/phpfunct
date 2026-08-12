@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Collection;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Collection;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Collection;
  * @package Funct\Tests\Collection
  * @author  Aurimas Niekis <aurimas@niekis.lt>
  */
-class CollectionMinValueTest extends \PHPUnit_Framework_TestCase
+class CollectionMinValueTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataCollectionMinValue()
+    public static function dataCollectionMinValue()
     {
         $out = [];
 
@@ -45,9 +47,7 @@ class CollectionMinValueTest extends \PHPUnit_Framework_TestCase
         return $out;
     }
 
-    /**
-     * @dataProvider dataCollectionMinValue
-     */
+    #[DataProvider('dataCollectionMinValue')]
     public function testCollectionMinValue($given, $expected)
     {
         $this->assertEquals($expected, call_user_func_array('Funct\Collection\minValue', $given));

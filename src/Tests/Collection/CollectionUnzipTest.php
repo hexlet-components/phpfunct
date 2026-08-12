@@ -2,6 +2,8 @@
 
 namespace Funct\Tests\Collection;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use Funct\Collection;
 
 /**
@@ -10,9 +12,9 @@ use Funct\Collection;
  * @package Funct\Tests\Collection
  * @author  Aurimas Niekis <aurimas@niekis.lt>
  */
-class CollectionUnzipTest extends \PHPUnit_Framework_TestCase
+class CollectionUnzipTest extends \PHPUnit\Framework\TestCase
 {
-    public function dataCollectionUnzip()
+    public static function dataCollectionUnzip()
     {
         $out = [];
 
@@ -29,9 +31,7 @@ class CollectionUnzipTest extends \PHPUnit_Framework_TestCase
         return $out;
     }
 
-    /**
-     * @dataProvider dataCollectionUnzip
-     */
+    #[DataProvider('dataCollectionUnzip')]
     public function testCollectionUnzip($given, $expected)
     {
         $this->assertEquals($expected, Collection\unzip($given));

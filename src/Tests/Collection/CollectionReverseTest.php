@@ -10,7 +10,7 @@ use Funct\Collection;
  * @package Funct\Tests\Collection
  * @author Rod Elias <rod@wgo.com.br>
 */
-class CollectionReverseTest extends \PHPUnit_Framework_TestCase
+class CollectionReverseTest extends \PHPUnit\Framework\TestCase
 {
     public function testCollectionReverse()
     {
